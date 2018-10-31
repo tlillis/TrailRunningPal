@@ -6,103 +6,106 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>384</width>
+    <height>276</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QRadioButton" name="radioButton_athelete">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>130</y>
-      <width>100</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Athelete</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="radioButton_coach">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>130</y>
-      <width>100</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Coach</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>80</x>
       <y>40</y>
       <width>231</width>
-      <height>41</height>
+      <height>64</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Username</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_username"/>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Username</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Password</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEdit_username"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_password"/>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <widget class="QWidget" name="horizontalLayoutWidget_3">
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>90</y>
+      <y>100</y>
       <width>231</width>
-      <height>41</height>
+      <height>60</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QRadioButton" name="radioButton_coach">
        <property name="text">
-        <string>Password</string>
+        <string>Coach</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit_password"/>
+      <widget class="QRadioButton" name="radioButton_athelete">
+       <property name="text">
+        <string>Athelete</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
+    <zorder>radioButton_coach</zorder>
+    <zorder>radioButton_athelete</zorder>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>143</x>
-      <y>6</y>
-      <width>121</width>
+      <x>130</x>
+      <y>10</y>
+      <width>129</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>Trail Running Pal</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Login">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>150</y>
-      <width>85</width>
+      <x>130</x>
+      <y>160</y>
+      <width>129</width>
       <height>27</height>
      </rect>
     </property>
@@ -110,13 +113,20 @@
      <string>Login</string>
     </property>
    </widget>
+   <zorder>horizontalLayoutWidget</zorder>
+   <zorder>horizontalLayoutWidget_3</zorder>
+   <zorder>lineEdit_username</zorder>
+   <zorder>lineEdit_password</zorder>
+   <zorder>verticalSpacer</zorder>
+   <zorder>label_3</zorder>
+   <zorder>pushButton_Login</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>384</width>
      <height>27</height>
     </rect>
    </property>

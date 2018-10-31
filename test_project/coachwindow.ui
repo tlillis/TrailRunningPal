@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>600</width>
+    <height>493</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,14 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>121</width>
+     <width>161</width>
      <height>17</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Welcome Coach</string>
@@ -30,39 +35,82 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>110</y>
-     <width>54</width>
+     <y>40</y>
+     <width>71</width>
      <height>17</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Atheletes</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>54</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Groups</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>170</y>
-     <width>54</width>
+     <y>260</y>
+     <width>71</width>
      <height>17</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
    <property name="text">
-    <string>Workouts</string>
+    <string>Teams</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>581</width>
+     <height>181</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableView_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>581</width>
+     <height>181</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>10</y>
+     <width>85</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add Team</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>10</y>
+     <width>85</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add Athlete</string>
    </property>
   </widget>
  </widget>
