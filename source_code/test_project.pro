@@ -15,12 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     athlwindow.cpp \
-    coachwindow.cpp
+    coachwindow.cpp \
+    importwindow.cpp
 
 HEADERS  += mainwindow.h \
     athlwindow.h \
-    coachwindow.h
+    coachwindow.h \
+    importwindow.h
 
 FORMS    += mainwindow.ui \
     athlwindow.ui \
-    coachwindow.ui
+    coachwindow.ui \
+    importwindow.ui

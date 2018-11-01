@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>171</width>
+     <width>191</width>
      <height>21</height>
     </rect>
    </property>
@@ -31,7 +31,7 @@
     <string>Welcome Athelete</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_Import">
    <property name="geometry">
     <rect>
      <x>460</x>

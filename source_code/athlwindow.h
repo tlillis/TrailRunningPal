@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "importwindow.h"
+
 namespace Ui {
 class AthlWindow;
 }
@@ -14,6 +16,9 @@ class AthlWindow : public QWidget
 public:
     explicit AthlWindow(QWidget *parent = 0);
     ~AthlWindow();
+
+private slots:
+    void on_pushButton_Import_clicked();
 
 private:
     Ui::AthlWindow *ui;
