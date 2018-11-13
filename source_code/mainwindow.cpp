@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "login.h"
 
 #include <QMessageBox>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -23,13 +25,16 @@ void MainWindow::on_pushButton_Login_clicked()
     if(username ==  "test" && password == "test") {
         //
         //hide();
+        Login* login = NULL;
         if (login_type == "athelete") {
-            AthlWindow *athelete_window = new AthlWindow();
-            athelete_window->show();
+            login = new AthleteLogin();
+            login->login(username.toStdString(),password.toStdString());
+            //AthlWindow *athelete_window = new AthlWindow();
+            //athelete_window->show();
         }
         else if(login_type == "coach") {
-            CoachWindow *coach_window = new CoachWindow();
-            coach_window->show();
+            //CoachWindow *coach_window = new CoachWindow();
+            //coach_window->show();
         }
         else {
             QMessageBox::information(this, "Login", "Must select either athelete or coach");
@@ -38,6 +43,7 @@ void MainWindow::on_pushButton_Login_clicked()
     else {
         QMessageBox::warning(this,"Login", "Username and password is not correct");
     }
+    std::cout << "THis is a test" << std::endl;
 }
 
 void MainWindow::on_radioButton_athelete_clicked()

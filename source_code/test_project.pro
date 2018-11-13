@@ -16,12 +16,16 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     athlwindow.cpp \
     coachwindow.cpp \
-    importwindow.cpp
+    importwindow.cpp \
+    windowfacade.cpp \
+    login.cpp
 
 HEADERS  += mainwindow.h \
     athlwindow.h \
     coachwindow.h \
-    importwindow.h
+    importwindow.h \
+    windowfacade.h \
+    login.h
 
 FORMS    += mainwindow.ui \
     athlwindow.ui \

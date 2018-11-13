@@ -80,16 +80,6 @@
     <string>Overall Statistics</string>
    </property>
   </widget>
-  <widget class="QTableView" name="runsTable">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>561</width>
-     <height>151</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
@@ -388,6 +378,127 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>561</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <property name="gridStyle">
+    <enum>Qt::SolidLine</enum>
+   </property>
+   <row>
+    <property name="text">
+     <string>11/10/18</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>11/9/18</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>11/8/18</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>New Row</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>New Row</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>New Row</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>New Row</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>Miles</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Time</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Test1</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Test2</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>New Column</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Test3</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Test5</string>
+    </property>
+   </column>
+   <item row="0" column="0">
+    <property name="text">
+     <string>11</string>
+    </property>
+   </item>
+   <item row="0" column="1">
+    <property name="text">
+     <string>10:00</string>
+    </property>
+   </item>
+   <item row="0" column="2">
+    <property name="text">
+     <string>test</string>
+    </property>
+   </item>
+   <item row="0" column="3">
+    <property name="text">
+     <string>test</string>
+    </property>
+   </item>
+   <item row="0" column="4">
+    <property name="text">
+     <string>test</string>
+    </property>
+   </item>
+   <item row="0" column="5">
+    <property name="text">
+     <string>test</string>
+    </property>
+   </item>
+   <item row="0" column="6">
+    <property name="text">
+     <string>test</string>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>
