@@ -18,14 +18,18 @@ SOURCES += main.cpp\
     coachwindow.cpp \
     importwindow.cpp \
     windowfacade.cpp \
-    login.cpp
+    login.cpp \
+    loadfile.cpp \
+    filedatacontainer.cpp
 
 HEADERS  += mainwindow.h \
     athlwindow.h \
     coachwindow.h \
     importwindow.h \
     windowfacade.h \
-    login.h
+    login.h \
+    loadfile.h \
+    filedatacontainer.h
 
 FORMS    += mainwindow.ui \
     athlwindow.ui \

@@ -22,28 +22,21 @@ void MainWindow::on_pushButton_Login_clicked()
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
 
-    if(username ==  "test" && password == "test") {
-        //
-        //hide();
-        Login* login = NULL;
-        if (login_type == "athelete") {
-            login = new AthleteLogin();
-            login->login(username.toStdString(),password.toStdString());
-            //AthlWindow *athelete_window = new AthlWindow();
-            //athelete_window->show();
-        }
-        else if(login_type == "coach") {
-            //CoachWindow *coach_window = new CoachWindow();
-            //coach_window->show();
-        }
-        else {
-            QMessageBox::information(this, "Login", "Must select either athelete or coach");
-        }
+    Login* login = NULL;
+    if (login_type == "athelete") {
+        login = new AthleteLogin();
+    }
+    else if(login_type == "coach") {
+        login = new CoachLogin();
     }
     else {
-        QMessageBox::warning(this,"Login", "Username and password is not correct");
+        QMessageBox::information(this, "Login", "Must select either athelete or coach");
+        return;
     }
-    std::cout << "THis is a test" << std::endl;
+    if(login->login(username.toStdString(),password.toStdString()) == -1)
+    {
+        QMessageBox::information(this, "Login", "Incorrect credentials");
+    }
 }
 
 void MainWindow::on_radioButton_athelete_clicked()

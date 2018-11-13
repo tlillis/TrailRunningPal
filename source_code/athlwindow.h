@@ -4,6 +4,7 @@
 #include <QWidget>
 
 #include "importwindow.h"
+#include "filedatacontainer.h"
 
 namespace Ui {
 class AthlWindow;
@@ -15,6 +16,7 @@ class AthlWindow : public QWidget
 
 public:
     explicit AthlWindow(QWidget *parent = 0);
+    void import_runs(RunsDataContainer data);
     ~AthlWindow();
 
 private slots:

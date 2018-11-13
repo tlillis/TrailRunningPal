@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>587</width>
+    <width>914</width>
     <height>433</height>
    </rect>
   </property>
@@ -83,7 +83,7 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>200</x>
      <y>240</y>
      <width>561</width>
      <height>181</height>
@@ -384,9 +384,15 @@
     <rect>
      <x>10</x>
      <y>60</y>
-     <width>561</width>
+     <width>921</width>
      <height>171</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>881</width>
+     <height>0</height>
+    </size>
    </property>
    <property name="showGrid">
     <bool>true</bool>
@@ -394,44 +400,18 @@
    <property name="gridStyle">
     <enum>Qt::SolidLine</enum>
    </property>
-   <row>
-    <property name="text">
-     <string>11/10/18</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>11/9/18</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>11/8/18</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>New Row</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>New Row</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>New Row</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>New Row</string>
-    </property>
-   </row>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>100</number>
+   </attribute>
+   <attribute name="verticalHeaderDefaultSectionSize">
+    <number>30</number>
+   </attribute>
+   <attribute name="verticalHeaderMinimumSectionSize">
+    <number>25</number>
+   </attribute>
    <column>
     <property name="text">
-     <string>Miles</string>
+     <string>Date</string>
     </property>
    </column>
    <column>
@@ -441,64 +421,39 @@
    </column>
    <column>
     <property name="text">
-     <string>Test1</string>
+     <string>Miles</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>Test2</string>
+     <string>Elevation Gain</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>New Column</string>
+     <string>Max Heart Rate</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>Test3</string>
+     <string>Average Heart Rate</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>Test5</string>
+     <string>Calories</string>
     </property>
    </column>
-   <item row="0" column="0">
+   <column>
     <property name="text">
-     <string>11</string>
+     <string>Fastest Mile</string>
     </property>
-   </item>
-   <item row="0" column="1">
+   </column>
+   <column>
     <property name="text">
-     <string>10:00</string>
+     <string>Tag</string>
     </property>
-   </item>
-   <item row="0" column="2">
-    <property name="text">
-     <string>test</string>
-    </property>
-   </item>
-   <item row="0" column="3">
-    <property name="text">
-     <string>test</string>
-    </property>
-   </item>
-   <item row="0" column="4">
-    <property name="text">
-     <string>test</string>
-    </property>
-   </item>
-   <item row="0" column="5">
-    <property name="text">
-     <string>test</string>
-    </property>
-   </item>
-   <item row="0" column="6">
-    <property name="text">
-     <string>test</string>
-    </property>
-   </item>
+   </column>
   </widget>
  </widget>
  <resources/>

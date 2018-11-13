@@ -11,9 +11,9 @@ public:
     Login();
     int login(std::string username, std::string password);
 protected:
-    virtual void checkCredentials(std::string username, std::string password) = 0;
+    virtual int checkCredentials(std::string username, std::string password) = 0;
     virtual void startWindow() = 0;
-    virtual void loadData() = 0;
+    virtual void loadData(std::string username) = 0;
 };
 
 
@@ -21,9 +21,9 @@ class AthleteLogin : public Login
 {
 public:
     AthleteLogin();
-    void checkCredentials(std::string username, std::string password);
+    int checkCredentials(std::string username, std::string password);
     void startWindow();
-    void loadData();
+    void loadData(std::string username);
 private:
     AthlWindow *athelete_window;
 };
@@ -32,7 +32,9 @@ class CoachLogin : public Login
 {
 public:
     CoachLogin();
+    int checkCredentials(std::string username, std::string password);
     void startWindow();
+    void loadData(std::string username);
 private:
     CoachWindow *coach_window;
 };
