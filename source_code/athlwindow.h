@@ -17,6 +17,7 @@ class AthlWindow : public QWidget
 public:
     explicit AthlWindow(QWidget *parent = 0);
     void import_runs(RunsDataContainer data);
+    void import_athlete(AthleteDataContainer data);
     ~AthlWindow();
 
 private slots:

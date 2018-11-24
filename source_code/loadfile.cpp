@@ -11,6 +11,27 @@ class LoadInterface
         virtual void load(std::string filename,FileDataContainer* data) const = 0;
 };
 
+class LoadFile
+{
+    private:
+        LoadInterface * strategy_;
+
+    public:
+        explicit LoadFile(LoadInterface *strategy):strategy_(strategy)
+        {
+        }
+
+        void set_strategy(LoadInterface *strategy)
+        {
+            strategy_ = strategy;
+        }
+
+        void load(std::string filename,FileDataContainer* data) const
+        {
+            strategy_->load(filename,data);
+        }
+};
+
 class LoadRuns: public LoadInterface
 {
     public:
@@ -18,12 +39,12 @@ class LoadRuns: public LoadInterface
         {
             filename += "_runs.csv";
             std::ifstream infile(filename.c_str());
-            std::vector<RunData> runs;
+            std::vector<RunDataContainer> runs;
             std::string line;
             while(std::getline(infile, line))
             {
                 std::cout << line << std::endl;
-                RunData run;
+                RunDataContainer run;
                 std::istringstream s(line);
                 std::string field;
 
@@ -33,77 +54,34 @@ class LoadRuns: public LoadInterface
                 getline(s, field,',');
                 run.set_date(field);
 
+                // Time
                 getline(s, field,',');
                 run.set_time(field);
 
+                // Miles
                 getline(s, field,',');
                 run.set_miles(field);
 
+                // Elevation Gain
                 getline(s, field,',');
                 run.set_egain(field);
 
+                // Max Heart Rate
                 getline(s, field,',');
                 run.set_mhr(field);
 
+                // Average Heart Rate
                 getline(s, field,',');
                 run.set_ahr(field);
 
+                // Calories
                 getline(s, field,',');
                 run.set_cals(field);
 
+                // Fastest Mile Time
                 getline(s, field,',');
                 run.set_fastest(field);
 
-                /**
-                // Time
-                getline(s, field,',');
-                std::stringstream ss_time(field);
-                unsigned int time;
-                ss_time >> time;
-                run.set_time(time);
-
-                // Miles
-                getline(s, field,',');
-                std::stringstream ss_miles(field);
-                float miles;
-                ss_miles >> miles;
-                run.set_miles(miles);
-
-                // Elevation Gain
-                getline(s, field,',');
-                std::stringstream ss_egain(field);
-                float egain;
-                ss_egain >> egain;
-                run.set_egain(egain);
-
-                // Max Heart Rate
-                getline(s, field,',');
-                std::stringstream ss_mhr(field);
-                unsigned int mhr;
-                ss_mhr >> mhr;
-                run.set_mhr(mhr);
-
-                // Average Heart Rate
-                getline(s, field,',');
-                std::stringstream ss_ahr(field);
-                unsigned int ahr;
-                ss_ahr >> ahr;
-                run.set_ahr(ahr);
-
-                // Calories
-                getline(s, field,',');
-                std::stringstream ss_cals(field);
-                unsigned int cals;
-                ss_cals >> cals;
-                run.set_cals(cals);
-
-                // Fastest Mile Time
-                getline(s, field,',');
-                std::stringstream ss_fastest(field);
-                unsigned int fastest;
-                ss_fastest >> fastest;
-                run.set_fastest(fastest);
-                **/
                 // Tag
                 getline(s, field,',');
                 run.set_tag(field);
@@ -134,12 +112,86 @@ class LoadAthlete: public LoadInterface
     public:
         void load(std::string filename,FileDataContainer* data) const override
         {
+            filename += "_stats.txt";
             std::ifstream infile(filename.c_str());
-            //cout << "Called ConcreteStrategyA execute method" << endl;
+            std::string line;
+            while(std::getline(infile, line))
+            {
+                std::cout << line << std::endl;
+                std::istringstream s(line);
+                std::string field;
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_name(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_miles(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_ytd_miles(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_last_miles(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_pace(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_ytd_pace(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_ascent(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_ytd_ascent(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_mile1(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_mile2(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_k5(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_k10(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_half_mar(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_mar(field);
+
+                getline(s, field,',');
+                ((AthleteDataContainer*)data)->set_mile50(field);
+            }
         }
 };
 
 class LoadCoach: public LoadInterface
+{
+    public:
+        void load(std::string filename,FileDataContainer* data) const override
+        {
+            filename += "_coach.txt";
+            std::ifstream infile(filename.c_str());
+            std::string line;
+            std::vector <AthleteDataContainer> athletes;
+            LoadAthlete load_athlete;
+            while(std::getline(infile, line))
+            {
+                std::cout << line << std::endl;
+                AthleteDataContainer athlete;
+                LoadFile file_loader(&load_athlete);
+                file_loader.load(line,&athlete);
+                athletes.push_back(athlete);
+            }
+            ((AthletesDataContainer*)data)->set_athletes(athletes);
+        }
+};
+
+class LoadTeam: public LoadInterface
 {
     public:
         void load(std::string filename,FileDataContainer* data) const override
@@ -149,23 +201,4 @@ class LoadCoach: public LoadInterface
         }
 };
 
-class LoadFile
-{
-    private:
-        LoadInterface * strategy_;
 
-    public:
-        explicit LoadFile(LoadInterface *strategy):strategy_(strategy)
-        {
-        }
-
-        void set_strategy(LoadInterface *strategy)
-        {
-            strategy_ = strategy;
-        }
-
-        void load(std::string filename,FileDataContainer* data) const
-        {
-            strategy_->load(filename,data);
-        }
-};

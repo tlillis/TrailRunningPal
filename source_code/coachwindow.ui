@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>715</width>
     <height>493</height>
    </rect>
   </property>
@@ -53,7 +53,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>260</y>
+     <y>270</y>
      <width>71</width>
      <height>17</height>
     </rect>
@@ -67,30 +67,10 @@
     <string>Teams</string>
    </property>
   </widget>
-  <widget class="QTableView" name="tableView">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>60</y>
-     <width>581</width>
-     <height>181</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QTableView" name="tableView_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>280</y>
-     <width>581</width>
-     <height>181</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>620</x>
      <y>10</y>
      <width>85</width>
      <height>27</height>
@@ -103,7 +83,7 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>530</x>
      <y>10</y>
      <width>85</width>
      <height>27</height>
@@ -112,6 +92,56 @@
    <property name="text">
     <string>Add Athlete</string>
    </property>
+  </widget>
+  <widget class="QTableWidget" name="coachTable">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>701</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>Name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Miles</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Pace</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Ascent</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>1 Mile</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>5K</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>10K</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Marathon</string>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>

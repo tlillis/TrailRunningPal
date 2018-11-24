@@ -45,14 +45,15 @@ void AthleteLogin::loadData(std::string username)
     LoadAthlete load_athlete;
     LoadRuns load_runs;
 
+    AthleteDataContainer data_a;
     LoadFile file_loader(&load_athlete);
-    //file_loader.load("test");
-    //athelete_window->import_athlete();
+    file_loader.load(username,&data_a);
+    athelete_window->import_athlete(data_a);
 
-    RunsDataContainer data;
+    RunsDataContainer data_r;
     file_loader.set_strategy(&load_runs);
-    file_loader.load(username,&data);
-    athelete_window->import_runs(data);
+    file_loader.load(username,&data_r);
+    athelete_window->import_runs(data_r);
 }
 
 void AthleteLogin::startWindow()
@@ -74,14 +75,15 @@ void CoachLogin::startWindow()
 
 void CoachLogin::loadData(std::__cxx11::string username)
 {
-    LoadAthlete load_athlete;
-    LoadRuns load_runs;
+    LoadCoach load_coach;
+    LoadTeam load_team;
 
-    LoadFile file_loader(&load_athlete);
-    //file_loader.load("test");
-    //athelete_window->import_athlete();
+    LoadFile file_loader(&load_coach);
+    AthletesDataContainer athletes;
+    file_loader.load(username,&athletes);
+    coach_window->import_athletes(athletes);
 
-    file_loader.set_strategy(&load_runs);
+    //file_loader.set_strategy(&load_runs);
     //file_loader.load("test");
     //athelete_window->import_runs();
 }

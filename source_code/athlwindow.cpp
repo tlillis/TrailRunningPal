@@ -16,9 +16,27 @@ void AthlWindow::on_pushButton_Import_clicked()
     import_window->show();
 }
 
+void AthlWindow::import_athlete(AthleteDataContainer data)
+{
+    ui->miles->setText(QString::fromStdString(data.get_miles()));
+    ui->ytd_miles->setText(QString::fromStdString(data.get_ytd_miles()));
+    ui->last_miles->setText(QString::fromStdString(data.get_last_miles()));
+    ui->pace->setText(QString::fromStdString(data.get_pace()));
+    ui->ytd_pace->setText(QString::fromStdString(data.get_ytd_pace()));
+    ui->ascent->setText(QString::fromStdString(data.get_ascent()));
+    ui->ytd_ascent->setText(QString::fromStdString(data.get_ytd_ascent()));
+    ui->mile1->setText(QString::fromStdString(data.get_mile1()));
+    ui->mile2->setText(QString::fromStdString(data.get_mile2()));
+    ui->k5->setText(QString::fromStdString(data.get_k5()));
+    ui->k10->setText(QString::fromStdString(data.get_k10()));
+    ui->half_mar->setText(QString::fromStdString(data.get_half_mar()));
+    ui->mar->setText(QString::fromStdString(data.get_mar()));
+    ui->mile50->setText(QString::fromStdString(data.get_mile50()));
+}
+
 void AthlWindow::import_runs(RunsDataContainer data)
 {
-    std::vector <RunData> runs = data.get_runs();
+    std::vector <RunDataContainer> runs = data.get_runs();
     std::cout << "Import runs: " << runs.size() << std::endl;
     for(unsigned int i = 0; i < runs.size(); i++)
     {

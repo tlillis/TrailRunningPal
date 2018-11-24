@@ -3,6 +3,9 @@
 
 #include <QWidget>
 
+#include "importwindow.h"
+#include "filedatacontainer.h"
+
 namespace Ui {
 class CoachWindow;
 }
@@ -13,6 +16,7 @@ class CoachWindow : public QWidget
 
 public:
     explicit CoachWindow(QWidget *parent = 0);
+    void import_athletes(AthletesDataContainer data);
     ~CoachWindow();
 
 private:
