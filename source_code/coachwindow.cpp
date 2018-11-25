@@ -49,3 +49,32 @@ void CoachWindow::import_athletes(AthletesDataContainer data)
                                      new QTableWidgetItem(QString::fromStdString(athletes[i].get_mar())));
     }
 }
+
+void CoachWindow::import_teams(TeamsDataContainer data)
+{
+    std::vector <TeamDataContainer> teams = data.get_teams();
+    std::cout << "Import teams: " << teams.size() << std::endl;
+    for(unsigned int i = 0; i < teams.size(); i++)
+    {
+        ui->teamTable->insertRow ( ui->teamTable->rowCount() );
+        ui->teamTable->setItem   ( ui->teamTable->rowCount()-1,
+                                     0,
+                                     new QTableWidgetItem(QString::fromStdString(teams[i].get_name())));
+        ui->teamTable->setItem   ( ui->teamTable->rowCount()-1,
+                                     1,
+                                     new QTableWidgetItem(QString::fromStdString(teams[i].get_athletes())));
+        ui->teamTable->setItem   ( ui->teamTable->rowCount()-1,
+                                     2,
+                                     new QTableWidgetItem(QString::fromStdString(teams[i].get_miles())));
+        ui->teamTable->setItem   ( ui->teamTable->rowCount()-1,
+                                     3,
+                                     new QTableWidgetItem(QString::fromStdString(teams[i].get_pace())));
+        ui->teamTable->setItem   ( ui->teamTable->rowCount()-1,
+                                     4,
+                                     new QTableWidgetItem(QString::fromStdString(teams[i].get_ascent())));
+        ui->teamTable->setItem   ( ui->teamTable->rowCount()-1,
+                                     5,
+                                     new QTableWidgetItem(QString::fromStdString(teams[i].get_fastest())));
+    }
+}
+

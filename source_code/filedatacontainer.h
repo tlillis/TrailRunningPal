@@ -112,6 +112,31 @@ private:
     std::string _mile50;
 };
 
+class TeamDataContainer : public FileDataContainer
+{
+public:
+    TeamDataContainer();
+    std::string get_name();
+    void set_name(std::string name);
+    std::string get_athletes();
+    void set_athletes(std::string athletes);
+    std::string get_miles();
+    void set_miles(std::string miles);
+    std::string get_pace();
+    void set_pace(std::string pace);
+    std::string get_ascent();
+    void set_ascent(std::string ascent);
+    std::string get_fastest();
+    void set_fastest(std::string fastest);
+private:
+    std::string _name;
+    std::string _athletes;
+    std::string _miles;
+    std::string _pace;
+    std::string _ascent;
+    std::string _fastest;
+};
+
 class RunsDataContainer : public FileDataContainer
 {
 public:
@@ -130,6 +155,16 @@ public:
     void set_athletes(std::vector<AthleteDataContainer> athletes);
 private:
     std::vector<AthleteDataContainer> _athletes;
+};
+
+class TeamsDataContainer : public FileDataContainer
+{
+public:
+    TeamsDataContainer();
+    std::vector <TeamDataContainer> get_teams();
+    void set_teams(std::vector<TeamDataContainer> teams);
+private:
+    std::vector<TeamDataContainer> _teams;
 };
 
 

@@ -143,6 +143,46 @@
     </property>
    </column>
   </widget>
+  <widget class="QTableWidget" name="teamTable">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>701</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>Name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Athletes</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Miles</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Pace</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Ascent</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Fastest</string>
+    </property>
+   </column>
+  </widget>
  </widget>
  <resources/>
  <connections/>

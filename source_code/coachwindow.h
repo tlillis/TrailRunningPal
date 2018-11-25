@@ -17,6 +17,7 @@ class CoachWindow : public QWidget
 public:
     explicit CoachWindow(QWidget *parent = 0);
     void import_athletes(AthletesDataContainer data);
+    void import_teams(TeamsDataContainer data);
     ~CoachWindow();
 
 private:

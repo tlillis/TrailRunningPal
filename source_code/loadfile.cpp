@@ -4,6 +4,8 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#define _GLIBCXX_USE_C99 1
+#include <string>
 
 class LoadInterface
 {
@@ -196,8 +198,74 @@ class LoadTeam: public LoadInterface
     public:
         void load(std::string filename,FileDataContainer* data) const override
         {
+            std::cout << "Loading team " << filename << std::endl;
+            std::string name = filename;
+            filename += "_team.txt";
             std::ifstream infile(filename.c_str());
-            //cout << "Called ConcreteStrategyA execute method" << endl;
+            std::string line;
+            std::vector <AthleteDataContainer> athletes;
+            LoadAthlete load_athlete;
+            while(std::getline(infile, line))
+            {
+                std::cout << line << std::endl;
+                AthleteDataContainer athlete;
+                LoadFile file_loader(&load_athlete);
+                file_loader.load(line,&athlete);
+                athletes.push_back(athlete);
+            }
+
+            int size = athletes.size();
+            int miles = 0;
+            int pace = 0;
+            int ascent = 0;
+            int fastest_pace = 0;
+            std::string fastest;
+
+            std::string::size_type sz;
+
+            for(unsigned int i = 0; i < athletes.size(); i++)
+            {
+                miles += std::stoi(athletes[i].get_miles(),&sz);
+                pace += std::stoi(athletes[i].get_pace(),&sz);
+                ascent += std::stoi(athletes[i].get_ascent(),&sz);
+                if(std::stoi(athletes[i].get_pace(),&sz) > fastest_pace)
+                {
+                    fastest_pace = std::stoi(athletes[i].get_pace(),&sz);
+                    fastest = athletes[i].get_name();
+                }
+            }
+
+            pace = pace / size;
+
+            ((TeamDataContainer*)data)->set_name(name);
+            ((TeamDataContainer*)data)->set_athletes(std::to_string(size));
+            ((TeamDataContainer*)data)->set_miles(std::to_string(miles));
+            ((TeamDataContainer*)data)->set_pace(std::to_string(pace));
+            ((TeamDataContainer*)data)->set_ascent(std::to_string(ascent));
+            ((TeamDataContainer*)data)->set_fastest(fastest);
+        }
+};
+
+class LoadTeams: public LoadInterface
+{
+    public:
+        void load(std::string filename,FileDataContainer* data) const override
+        {
+            std::cout << "Loading teams for " << filename << std::endl;
+            filename += "_teams.txt";
+            std::ifstream infile(filename.c_str());
+            std::string line;
+            std::vector <TeamDataContainer> teams;
+            LoadTeam load_team;
+            while(std::getline(infile, line))
+            {
+                std::cout << line << std::endl;
+                TeamDataContainer team;
+                LoadFile file_loader(&load_team);
+                file_loader.load(line,&team);
+                teams.push_back(team);
+            }
+            ((TeamsDataContainer*)data)->set_teams(teams);
         }
 };
 

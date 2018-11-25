@@ -310,3 +310,83 @@ void AthletesDataContainer::set_athletes(std::vector<AthleteDataContainer> athle
 {
     _athletes = athletes;
 }
+
+TeamsDataContainer::TeamsDataContainer()
+{
+
+}
+
+std::vector<TeamDataContainer> TeamsDataContainer::get_teams()
+{
+    return _teams;
+}
+
+void TeamsDataContainer::set_teams(std::vector<TeamDataContainer> teams)
+{
+    _teams = teams;
+}
+
+std::string TeamDataContainer::get_name()
+{
+    return _name;
+}
+
+void TeamDataContainer::set_name(std::string name)
+{
+    _name = name;
+}
+
+std::string TeamDataContainer::get_athletes()
+{
+    return _athletes;
+}
+
+void TeamDataContainer::set_athletes(std::string athletes)
+{
+    _athletes = athletes;
+}
+
+std::string TeamDataContainer::get_miles()
+{
+    return _miles;
+}
+
+void TeamDataContainer::set_miles(std::string miles)
+{
+    _miles = miles;
+}
+
+std::string TeamDataContainer::get_pace()
+{
+    return _pace;
+}
+
+void TeamDataContainer::set_pace(std::string pace)
+{
+    _pace = pace;
+}
+
+std::string TeamDataContainer::get_ascent()
+{
+    return _ascent;
+}
+
+void TeamDataContainer::set_ascent(std::string ascent)
+{
+    _ascent = ascent;
+}
+
+std::string TeamDataContainer::get_fastest()
+{
+    return _fastest;
+}
+
+void TeamDataContainer::set_fastest(std::string fastest)
+{
+    _fastest = fastest;
+}
+
+TeamDataContainer::TeamDataContainer()
+{
+
+}

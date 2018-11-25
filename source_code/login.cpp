@@ -76,16 +76,17 @@ void CoachLogin::startWindow()
 void CoachLogin::loadData(std::__cxx11::string username)
 {
     LoadCoach load_coach;
-    LoadTeam load_team;
+    LoadTeams load_team;
 
-    LoadFile file_loader(&load_coach);
     AthletesDataContainer athletes;
+    LoadFile file_loader(&load_coach);
     file_loader.load(username,&athletes);
     coach_window->import_athletes(athletes);
 
-    //file_loader.set_strategy(&load_runs);
-    //file_loader.load("test");
-    //athelete_window->import_runs();
+    TeamsDataContainer teams;
+    file_loader.set_strategy(&load_team);
+    file_loader.load(username,&teams);
+    coach_window->import_teams(teams);
 }
 
 int CoachLogin::checkCredentials(std::string username,std::string password)
