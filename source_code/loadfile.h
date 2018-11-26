@@ -120,7 +120,7 @@ class LoadAthlete: public LoadInterface
             filename += "_stats.txt";
             std::ifstream infile(filename.c_str());
             std::string line;
-            while(std::getline(infile, line))
+            if(std::getline(infile, line))
             {
                 std::cout << line << std::endl;
                 std::istringstream s(line);

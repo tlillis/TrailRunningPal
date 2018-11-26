@@ -16,6 +16,7 @@ class ImportWindow : public QWidget
 public:
     explicit ImportWindow(QWidget *parent = 0);
     void use_observer(FileUpdater * updater);
+    void update_stats(AthleteDataContainer *data);
 
     ~ImportWindow();
 
