@@ -1,6 +1,5 @@
 #include "login.h"
 #include "loadfile.h"
-#include "loadfile.cpp"
 #include "filedatacontainer.h"
 
 Login::Login()

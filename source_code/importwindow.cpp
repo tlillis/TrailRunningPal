@@ -13,6 +13,11 @@ ImportWindow::ImportWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void ImportWindow::use_observer(FileUpdater *updater)
+{
+    _updater = updater;
+}
+
 void ImportWindow::on_pushButton_Import_clicked()
 {
     QString route = ui->lineEdit_Route->text();
@@ -25,22 +30,26 @@ void ImportWindow::on_pushButton_Import_clicked()
     QString fastest = ui->lineEdit_Fastest->text();
     QString tags = ui->lineEdit_Tags->text();
 
+
+
     if(route != "" && time != "")
     {
-        std::ofstream outfile;
-        outfile.open ("output.txt");
-        outfile << "Route\t" << route.toStdString() << "\n";
-        outfile << "Time\t" << time.toStdString() << "\n";
-        outfile << "Miles\t" << miles.toStdString() << "\n";
-        outfile << "EGain\t" << egain.toStdString() << "\n";
-        outfile << "MHR\t" << mhr.toStdString() << "\n";
-        outfile << "AHR\t" << avr.toStdString() << "\n";
-        outfile << "Cals\t" << cals.toStdString() << "\n";
-        outfile << "Fastest\t" << fastest.toStdString() << "\n";
-        outfile << "Tags\t" << tags.toStdString() << "\n";
-        outfile.close();
-        QMessageBox::information(this, "Imported", "Imported Run Saved");
-        this->close();
+        if(_updater != NULL)
+        {
+            std::string data = "11/24/18,";
+            data += time.toStdString() + ",";
+            data += miles.toStdString() + ",";
+            data += egain.toStdString() + ",";
+            data += mhr.toStdString() + ",";
+            data += avr.toStdString() + ",";
+            data += cals.toStdString() + ",";
+            data += fastest.toStdString() + ",";
+            data += tags.toStdString();
+
+            _updater->write("tom","runs.csv",data);
+            QMessageBox::information(this, "Imported", "Imported Run Saved");
+            this->close();
+        }
     }
     else
     {

@@ -1,6 +1,9 @@
 #include "athlwindow.h"
 #include "ui_athlwindow.h"
 
+#include "fileupdater.h"
+#include "importwindow.h"
+
 #include <QMessageBox>
 
 AthlWindow::AthlWindow(QWidget *parent) :
@@ -12,7 +15,13 @@ AthlWindow::AthlWindow(QWidget *parent) :
 
 void AthlWindow::on_pushButton_Import_clicked()
 {
+    AthleteObserver *obs = new AthleteObserver();
+    obs->use_window(this);
+    FileUpdater updater;
+    updater.attach(obs);
+
     ImportWindow *import_window = new ImportWindow();
+    import_window->use_observer(&updater);
     import_window->show();
 }
 
@@ -69,6 +78,7 @@ void AthlWindow::import_runs(RunsDataContainer data)
                                      8,
                                      new QTableWidgetItem(QString::fromStdString(runs[i].get_tag())));
     }
+
 }
 
 

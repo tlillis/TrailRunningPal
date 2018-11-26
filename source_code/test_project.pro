@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     windowfacade.cpp \
     login.cpp \
     loadfile.cpp \
-    filedatacontainer.cpp
+    filedatacontainer.cpp \
+    fileupdater.cpp
 
 HEADERS  += mainwindow.h \
     athlwindow.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     windowfacade.h \
     login.h \
     loadfile.h \
-    filedatacontainer.h
+    filedatacontainer.h \
+    fileupdater.h
 
 FORMS    += mainwindow.ui \
     athlwindow.ui \

@@ -3,7 +3,6 @@
 
 #include <QWidget>
 
-#include "importwindow.h"
 #include "filedatacontainer.h"
 
 namespace Ui {
