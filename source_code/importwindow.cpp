@@ -30,8 +30,6 @@ void ImportWindow::on_pushButton_Import_clicked()
     QString fastest = ui->lineEdit_Fastest->text();
     QString tags = ui->lineEdit_Tags->text();
 
-
-
     if(route != "" && time != "")
     {
         if(_updater != NULL)
@@ -44,9 +42,10 @@ void ImportWindow::on_pushButton_Import_clicked()
             data += avr.toStdString() + ",";
             data += cals.toStdString() + ",";
             data += fastest.toStdString() + ",";
-            data += tags.toStdString();
+            data += tags.toStdString() + "\n";
 
             _updater->write("tom","runs.csv",data);
+            _updater->notify(username);
             QMessageBox::information(this, "Imported", "Imported Run Saved");
             this->close();
         }

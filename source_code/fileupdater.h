@@ -13,6 +13,7 @@ class Observer
 {
 public:
     virtual void update(std::string username) = 0;
+    int test = 10;
 };
 
 class FileUpdater

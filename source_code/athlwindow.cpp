@@ -17,11 +17,12 @@ void AthlWindow::on_pushButton_Import_clicked()
 {
     AthleteObserver *obs = new AthleteObserver();
     obs->use_window(this);
-    FileUpdater updater;
-    updater.attach(obs);
+
+    FileUpdater *updater = new FileUpdater();
+    updater->attach(obs);
 
     ImportWindow *import_window = new ImportWindow();
-    import_window->use_observer(&updater);
+    import_window->use_observer(updater);
     import_window->show();
 }
 
@@ -47,6 +48,7 @@ void AthlWindow::import_runs(RunsDataContainer data)
 {
     std::vector <RunDataContainer> runs = data.get_runs();
     std::cout << "Import runs: " << runs.size() << std::endl;
+    ui->tableWidget->setRowCount(0);
     for(unsigned int i = 0; i < runs.size(); i++)
     {
         ui->tableWidget->insertRow ( ui->tableWidget->rowCount() );
