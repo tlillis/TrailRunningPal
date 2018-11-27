@@ -5,6 +5,8 @@
 #include "coachwindow.h"
 #include "loadfile.h"
 
+#include <fstream>
+#include <sstream>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -15,6 +17,9 @@ public:
     virtual void update(std::string username) = 0;
     int test = 10;
 };
+
+class AthlWindow;
+class CoachWindow;
 
 class FileUpdater
 {

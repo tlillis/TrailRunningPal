@@ -1,9 +1,5 @@
 #include "fileupdater.h"
-#include "loadfile.h"
 
-#include <fstream>
-#include <iostream>
-#include <sstream>
 
 // Subject
 FileUpdater::FileUpdater()

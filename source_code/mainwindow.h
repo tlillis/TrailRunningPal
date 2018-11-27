@@ -2,9 +2,16 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
+
+#include <iostream>
 
 #include "athlwindow.h"
 #include "coachwindow.h"
+#include "ui_mainwindow.h"
+#include "login.h"
+
+
 
 namespace Ui {
 class MainWindow;

@@ -23,7 +23,10 @@ SOURCES += main.cpp\
     login.cpp \
     loadfile.cpp \
     filedatacontainer.cpp \
-    fileupdater.cpp
+    fileupdater.cpp \
+    addathlete.cpp \
+    addteamathlete.cpp \
+    addteam.cpp
 
 HEADERS  += mainwindow.h \
     athlwindow.h \
@@ -33,9 +36,15 @@ HEADERS  += mainwindow.h \
     login.h \
     loadfile.h \
     filedatacontainer.h \
-    fileupdater.h
+    fileupdater.h \
+    addathlete.h \
+    addteamathlete.h \
+    addteam.h
 
 FORMS    += mainwindow.ui \
     athlwindow.ui \
     coachwindow.ui \
-    importwindow.ui
+    importwindow.ui \
+    addathlete.ui \
+    addteamathlete.ui \
+    addteam.ui

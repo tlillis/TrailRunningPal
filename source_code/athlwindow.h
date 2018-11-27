@@ -1,13 +1,19 @@
 #ifndef ATHLWINDOW_H
 #define ATHLWINDOW_H
 
-#include <QWidget>
-
 #include "filedatacontainer.h"
+#include "fileupdater.h"
+#include "importwindow.h"
+
+#include <QWidget>
+#include <QMessageBox>
+
 
 namespace Ui {
 class AthlWindow;
 }
+
+class FileUpdater;
 
 class AthlWindow : public QWidget
 {

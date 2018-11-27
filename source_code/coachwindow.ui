@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>715</width>
-    <height>493</height>
+    <width>643</width>
+    <height>512</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,7 +53,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>270</y>
+     <y>290</y>
      <width>71</width>
      <height>17</height>
     </rect>
@@ -67,24 +67,11 @@
     <string>Teams</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>10</y>
-     <width>85</width>
-     <height>27</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add Team</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="athleteButton">
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>10</y>
+     <y>30</y>
      <width>85</width>
      <height>27</height>
     </rect>
@@ -98,7 +85,7 @@
     <rect>
      <x>10</x>
      <y>70</y>
-     <width>701</width>
+     <width>621</width>
      <height>192</height>
     </rect>
    </property>
@@ -147,8 +134,8 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>290</y>
-     <width>701</width>
+     <y>320</y>
+     <width>621</width>
      <height>192</height>
     </rect>
    </property>
@@ -182,6 +169,32 @@
      <string>Fastest</string>
     </property>
    </column>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>260</y>
+     <width>231</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="teamButton">
+      <property name="text">
+       <string>Add Team</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="ateamButton">
+      <property name="text">
+       <string>Add Athlete to Team</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

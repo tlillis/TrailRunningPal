@@ -1,11 +1,6 @@
 #include "athlwindow.h"
 #include "ui_athlwindow.h"
 
-#include "fileupdater.h"
-#include "importwindow.h"
-
-#include <QMessageBox>
-
 AthlWindow::AthlWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AthlWindow)

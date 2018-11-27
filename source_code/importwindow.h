@@ -1,13 +1,19 @@
 #ifndef IMPORTWINDOW_H
 #define IMPORTWINDOW_H
 
+#include <QMessageBox>
 #include <QWidget>
+
+#include <iostream>
+#include <fstream>
 
 #include "fileupdater.h"
 
 namespace Ui {
 class ImportWindow;
 }
+
+class FileUpdater;
 
 class ImportWindow : public QWidget
 {

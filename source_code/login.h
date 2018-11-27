@@ -1,9 +1,10 @@
 #ifndef LOGIN_H
 #define LOGIN_H
 
-
 #include "athlwindow.h"
 #include "coachwindow.h"
+#include "loadfile.h"
+#include "filedatacontainer.h"
 
 class Login
 {

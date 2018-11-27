@@ -1,11 +1,6 @@
 #include "importwindow.h"
 #include "ui_importwindow.h"
 
-#include <iostream>
-#include <fstream>
-
-#include <QMessageBox>
-
 ImportWindow::ImportWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ImportWindow)

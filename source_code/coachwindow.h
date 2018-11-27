@@ -4,10 +4,16 @@
 #include <QWidget>
 
 #include "filedatacontainer.h"
+#include "fileupdater.h"
+#include "addathlete.h"
+#include "addteam.h"
+#include "addteamathlete.h"
 
 namespace Ui {
 class CoachWindow;
 }
+
+class FileUpdater;
 
 class CoachWindow : public QWidget
 {
@@ -18,6 +24,10 @@ public:
     void import_athletes(AthletesDataContainer data);
     void import_teams(TeamsDataContainer data);
     ~CoachWindow();
+private slots:
+    void on_athleteButton_clicked();
+    void on_teamButton_clicked();
+    void on_ateamButton_clicked();
 
 private:
     Ui::CoachWindow *ui;
