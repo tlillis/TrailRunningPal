@@ -3,84 +3,84 @@
 
 AthlWindow::AthlWindow(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::AthlWindow)
+    _ui(new Ui::AthlWindow)
 {
-    ui->setupUi(this);
+    _ui->setupUi(this);
 }
 
-void AthlWindow::use_user(std::string username)
+void AthlWindow::setUser(std::string username)
 {
     _user = username;
-    ui->welcome->setText(QString::fromStdString("Welcome " + _user));
+    _ui->welcome->setText(QString::fromStdString("Welcome " + _user));
 }
 
 void AthlWindow::on_pushButton_Import_clicked()
 {
     AthleteObserver *obs = new AthleteObserver();
-    obs->use_window(this);
+    obs->setWindow(this);
 
     FileUpdater *updater = new FileUpdater();
     updater->attach(obs);
 
-    ImportWindow *import_window = new ImportWindow();
-    import_window->use_observer(updater);
-    import_window->use_user(_user);
-    import_window->show();
+    ImportWindow *importWindow = new ImportWindow();
+    importWindow->setObserver(updater);
+    importWindow->setUser(_user);
+    importWindow->show();
 }
 
-void AthlWindow::import_athlete(AthleteDataContainer data)
+void AthlWindow::importAthlete(AthleteDataContainer data)
 {
-    ui->miles->setText(QString::fromStdString(data.get_miles()));
-    ui->ytd_miles->setText(QString::fromStdString(data.get_ytd_miles()));
-    ui->last_miles->setText(QString::fromStdString(data.get_last_miles()));
-    ui->pace->setText(QString::fromStdString(data.get_pace()));
-    ui->ytd_pace->setText(QString::fromStdString(data.get_ytd_pace()));
-    ui->ascent->setText(QString::fromStdString(data.get_ascent()));
-    ui->ytd_ascent->setText(QString::fromStdString(data.get_ytd_ascent()));
-    ui->mile1->setText(QString::fromStdString(data.get_mile1()));
-    ui->mile2->setText(QString::fromStdString(data.get_mile2()));
-    ui->k5->setText(QString::fromStdString(data.get_k5()));
-    ui->k10->setText(QString::fromStdString(data.get_k10()));
-    ui->half_mar->setText(QString::fromStdString(data.get_half_mar()));
-    ui->mar->setText(QString::fromStdString(data.get_mar()));
-    ui->mile50->setText(QString::fromStdString(data.get_mile50()));
+    _ui->miles->setText(QString::fromStdString(data.getMiles()));
+    _ui->ytd_miles->setText(QString::fromStdString(data.getYtdMiles()));
+    _ui->last_miles->setText(QString::fromStdString(data.getLastMiles()));
+    _ui->pace->setText(QString::fromStdString(data.getPace()));
+    _ui->ytd_pace->setText(QString::fromStdString(data.getYtdPace()));
+    _ui->ascent->setText(QString::fromStdString(data.getAscent()));
+    _ui->ytd_ascent->setText(QString::fromStdString(data.getYtdAscent()));
+    _ui->mile1->setText(QString::fromStdString(data.getMile1()));
+    _ui->mile2->setText(QString::fromStdString(data.getMile2()));
+    _ui->k5->setText(QString::fromStdString(data.getK5()));
+    _ui->k10->setText(QString::fromStdString(data.getK10()));
+    _ui->half_mar->setText(QString::fromStdString(data.getHalfMar()));
+    _ui->mar->setText(QString::fromStdString(data.getMar()));
+    _ui->mile50->setText(QString::fromStdString(data.getMile50()));
 }
 
-void AthlWindow::import_runs(RunsDataContainer data)
+void AthlWindow::importRuns(RunsDataContainer data)
 {
-    std::vector <RunDataContainer> runs = data.get_runs();
+    std::vector <RunDataContainer> runs = data.getRuns();
     std::cout << "Import runs: " << runs.size() << std::endl;
-    ui->tableWidget->setRowCount(0);
+    _ui->tableWidget->setRowCount(0);
     for(unsigned int i = 0; i < runs.size(); i++)
     {
-        ui->tableWidget->insertRow ( ui->tableWidget->rowCount() );
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+        _ui->tableWidget->insertRow ( _ui->tableWidget->rowCount() );
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      0,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_date())));
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getDate())));
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      1,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_time())));
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getTime())));
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      2,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_miles())));
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getMiles())));
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      3,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_egain())));
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getEgain())));
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      4,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_mhr())));
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getMhr())));
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      5,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_ahr())));
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getAhr())));
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      6,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_cals())));
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getCals())));
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      7,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_fastest())));
-        ui->tableWidget->setItem   ( ui->tableWidget->rowCount()-1,
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getFastest())));
+        _ui->tableWidget->setItem   ( _ui->tableWidget->rowCount()-1,
                                      8,
-                                     new QTableWidgetItem(QString::fromStdString(runs[i].get_tag())));
+                                     new QTableWidgetItem(QString::fromStdString(runs[i].getTag())));
     }
 
 }
@@ -88,5 +88,5 @@ void AthlWindow::import_runs(RunsDataContainer data)
 
 AthlWindow::~AthlWindow()
 {
-    delete ui;
+    delete _ui;
 }

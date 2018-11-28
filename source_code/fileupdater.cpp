@@ -14,22 +14,22 @@ int FileUpdater::clear(std::string filename)
 }
 
 
-int FileUpdater::write(std::string username, std::string file_type ,std::string content)
+int FileUpdater::write(std::string username, std::string fileType , std::string content)
 {
-    std::string old_data;
+    std::string oldData;
     std::string line;
-    std::string filename = username + "_" + file_type;
+    std::string filename = username + "_" + fileType;
     std::ifstream infile(filename.c_str());
     if (infile.is_open())
     {
         while (getline (infile,line))
         {
-          old_data += line + "\n";
+          oldData += line + "\n";
         }
         infile.close();
     }
 
-    content += old_data;
+    content += oldData;
 
     std::ofstream outfile(filename.c_str());
     if (outfile.is_open())
@@ -61,40 +61,40 @@ int FileUpdater::attach(Observer *obs)
 
 
 void AthleteObserver::update(std::string username) {
-    LoadAthlete load_athlete;
-    LoadRuns load_runs;
+    LoadAthlete loadAthlete;
+    LoadRuns loadRuns;
 
-    AthleteDataContainer data_a;
-    LoadFile file_loader(&load_athlete);
-    file_loader.load(username,&data_a);
-    _window->import_athlete(data_a);
+    AthleteDataContainer athleteData;
+    LoadFile file_loader(&loadAthlete);
+    file_loader.load(username,&athleteData);
+    _window->importAthlete(athleteData);
 
-    RunsDataContainer data_r;
-    file_loader.set_strategy(&load_runs);
-    file_loader.load(username,&data_r);
-    _window->import_runs(data_r);
+    RunsDataContainer runData;
+    file_loader.set_strategy(&loadRuns);
+    file_loader.load(username,&runData);
+    _window->importRuns(runData);
 }
 
-void AthleteObserver::use_window(AthlWindow * window) {
+void AthleteObserver::setWindow(AthlWindow * window) {
     _window = window;
 }
 
 void CoachObserver::update(std::string username)
 {
-    LoadCoach load_coach;
-    LoadTeams load_team;
+    LoadCoach loadCoach;
+    LoadTeams loadTeam;
 
     AthletesDataContainer athletes;
-    LoadFile file_loader(&load_coach);
+    LoadFile file_loader(&loadCoach);
     file_loader.load(username,&athletes);
-    _window->import_athletes(athletes);
+    _window->importAthletes(athletes);
 
     TeamsDataContainer teams;
-    file_loader.set_strategy(&load_team);
+    file_loader.set_strategy(&loadTeam);
     file_loader.load(username,&teams);
-    _window->import_teams(teams);
+    _window->importTeams(teams);
 }
 
-void CoachObserver::use_window(CoachWindow * window) {
+void CoachObserver::setWindow(CoachWindow * window) {
     _window = window;
 }

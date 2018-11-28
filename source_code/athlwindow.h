@@ -21,16 +21,16 @@ class AthlWindow : public QWidget
 
 public:
     explicit AthlWindow(QWidget *parent = 0);
-    void import_runs(RunsDataContainer data);
-    void import_athlete(AthleteDataContainer data);
-    void use_user(std::string username);
+    void importRuns(RunsDataContainer data);
+    void importAthlete(AthleteDataContainer data);
+    void setUser(std::string username);
     ~AthlWindow();
 
 private slots:
     void on_pushButton_Import_clicked();
 
 private:
-    Ui::AthlWindow *ui;
+    Ui::AthlWindow *_ui;
     std::string _user;
 };
 

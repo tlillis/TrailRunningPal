@@ -27,12 +27,12 @@ int AthleteLogin::checkCredentials(std::string username,std::string password)
 {
     CredentialsDataContainer data;
     std::cout << "check creds" << std::endl;
-    LoadCredentials load_credentials;
-    LoadFile file_loader(&load_credentials);
-    file_loader.load(username,&data);
+    LoadCredentials loadCredentials;
+    LoadFile fileLoader(&loadCredentials);
+    fileLoader.load(username,&data);
 
     std::cout << password << std::endl;
-    if(data.get_password()==password) {
+    if(data.getPassword()==password) {
         return 1;
     }
     return -1;
@@ -40,26 +40,26 @@ int AthleteLogin::checkCredentials(std::string username,std::string password)
 
 void AthleteLogin::loadData(std::string username)
 {
-    athelete_window->use_user(username);
+    _atheleteWindow->setUser(username);
 
-    LoadAthlete load_athlete;
-    LoadRuns load_runs;
+    LoadAthlete loadAthlete;
+    LoadRuns loadRuns;
 
-    AthleteDataContainer data_a;
-    LoadFile file_loader(&load_athlete);
-    file_loader.load(username,&data_a);
-    athelete_window->import_athlete(data_a);
+    AthleteDataContainer athleteData;
+    LoadFile file_loader(&loadAthlete);
+    file_loader.load(username,&athleteData);
+    _atheleteWindow->importAthlete(athleteData);
 
-    RunsDataContainer data_r;
-    file_loader.set_strategy(&load_runs);
-    file_loader.load(username,&data_r);
-    athelete_window->import_runs(data_r);
+    RunsDataContainer runData;
+    file_loader.set_strategy(&loadRuns);
+    file_loader.load(username,&runData);
+    _atheleteWindow->importRuns(runData);
 }
 
 void AthleteLogin::startWindow()
 {
-    athelete_window = new AthlWindow();
-    athelete_window->show();
+    _atheleteWindow = new AthlWindow();
+    _atheleteWindow->show();
 }
 
 CoachLogin::CoachLogin()
@@ -69,37 +69,37 @@ CoachLogin::CoachLogin()
 
 void CoachLogin::startWindow()
 {
-    coach_window = new CoachWindow();
-    coach_window->show();
+    _coachWindow = new CoachWindow();
+    _coachWindow->show();
 }
 
 void CoachLogin::loadData(std::__cxx11::string username)
 {
-    coach_window->use_user(username);
+    _coachWindow->setUser(username);
 
-    LoadCoach load_coach;
-    LoadTeams load_team;
+    LoadCoach loadCoach;
+    LoadTeams loadTeam;
 
     AthletesDataContainer athletes;
-    LoadFile file_loader(&load_coach);
+    LoadFile file_loader(&loadCoach);
     file_loader.load(username,&athletes);
-    coach_window->import_athletes(athletes);
+    _coachWindow->importAthletes(athletes);
 
     TeamsDataContainer teams;
-    file_loader.set_strategy(&load_team);
+    file_loader.set_strategy(&loadTeam);
     file_loader.load(username,&teams);
-    coach_window->import_teams(teams);
+    _coachWindow->importTeams(teams);
 }
 
 int CoachLogin::checkCredentials(std::string username,std::string password)
 {
     CredentialsDataContainer data;
     std::cout << "check creds" << std::endl;
-    LoadCredentials load_credentials;
-    LoadFile file_loader(&load_credentials);
-    file_loader.load(username,&data);
+    LoadCredentials loadCredentials;
+    LoadFile fileLoader(&loadCredentials);
+    fileLoader.load(username,&data);
 
-    if(data.get_password()==password) {
+    if(data.getPassword()==password) {
         return 1;
     }
     return -1;

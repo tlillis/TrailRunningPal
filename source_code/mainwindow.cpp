@@ -3,26 +3,26 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    _ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    _ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete _ui;
 }
 
 void MainWindow::on_pushButton_Login_clicked()
 {
-    QString username = ui->lineEdit_username->text();
-    QString password = ui->lineEdit_password->text();
+    QString username = _ui->lineEdit_username->text();
+    QString password = _ui->lineEdit_password->text();
 
     Login* login = NULL;
-    if (login_type == "athelete") {
+    if (_loginType == "athelete") {
         login = new AthleteLogin();
     }
-    else if(login_type == "coach") {
+    else if(_loginType == "coach") {
         login = new CoachLogin();
     }
     else {
@@ -37,10 +37,10 @@ void MainWindow::on_pushButton_Login_clicked()
 
 void MainWindow::on_radioButton_athelete_clicked()
 {
-    login_type = "athelete";
+    _loginType = "athelete";
 }
 
 void MainWindow::on_radioButton_coach_clicked()
 {
-    login_type = "coach";
+    _loginType = "coach";
 }

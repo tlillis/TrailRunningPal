@@ -26,7 +26,7 @@ public:
     void startWindow();
     void loadData(std::string username);
 private:
-    AthlWindow *athelete_window;
+    AthlWindow *_atheleteWindow;
 };
 
 class CoachLogin : public Login
@@ -37,7 +37,7 @@ public:
     void startWindow();
     void loadData(std::string username);
 private:
-    CoachWindow *coach_window;
+    CoachWindow *_coachWindow;
 };
 
 

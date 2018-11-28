@@ -1,13 +1,13 @@
 #ifndef IMPORTWINDOW_H
 #define IMPORTWINDOW_H
 
-#include <QMessageBox>
-#include <QWidget>
+#include "fileupdater.h"
 
 #include <iostream>
 #include <fstream>
 
-#include "fileupdater.h"
+#include <QMessageBox>
+#include <QWidget>
 
 namespace Ui {
 class ImportWindow;
@@ -21,9 +21,9 @@ class ImportWindow : public QWidget
 
 public:
     explicit ImportWindow(QWidget *parent = 0);
-    void use_observer(FileUpdater * updater);
-    void use_user(std::string username);
-    void update_stats(AthleteDataContainer *data);
+    void setObserver(FileUpdater * updater);
+    void setUser(std::string username);
+    void updateStats(AthleteDataContainer *data);
 
     ~ImportWindow();
 
@@ -32,7 +32,7 @@ private slots:
 
 private:
     FileUpdater * _updater = NULL;
-    Ui::ImportWindow *ui;
+    Ui::ImportWindow *_ui;
     std::string _user;
 };
 

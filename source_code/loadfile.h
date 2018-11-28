@@ -6,8 +6,9 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-#define _GLIBCXX_USE_C99 1
 #include <string>
+
+#define _GLIBCXX_USE_C99 1
 
 class LoadInterface
 {
@@ -53,49 +54,47 @@ class LoadRuns: public LoadInterface
                 std::istringstream s(line);
                 std::string field;
 
-                // NEED TO REFACTOR THIS
-
                 // Date
                 getline(s, field,',');
-                run.set_date(field);
+                run.setDate(field);
 
                 // Time
                 getline(s, field,',');
-                run.set_time(field);
+                run.setTime(field);
 
                 // Miles
                 getline(s, field,',');
-                run.set_miles(field);
+                run.setMiles(field);
 
                 // Elevation Gain
                 getline(s, field,',');
-                run.set_egain(field);
+                run.setEgain(field);
 
                 // Max Heart Rate
                 getline(s, field,',');
-                run.set_mhr(field);
+                run.setMhr(field);
 
                 // Average Heart Rate
                 getline(s, field,',');
-                run.set_ahr(field);
+                run.setAhr(field);
 
                 // Calories
                 getline(s, field,',');
-                run.set_cals(field);
+                run.setCals(field);
 
                 // Fastest Mile Time
                 getline(s, field,',');
-                run.set_fastest(field);
+                run.setFastest(field);
 
                 // Tag
                 getline(s, field,',');
-                run.set_tag(field);
+                run.setTag(field);
 
                 // Put in vector
                 runs.push_back(run);
             }
             std::cout << "Import size: " << runs.size() << std::endl;
-            ((RunsDataContainer*)data)->set_runs(runs);
+            ((RunsDataContainer*)data)->setRuns(runs);
         }
 };
 
@@ -108,7 +107,7 @@ class LoadCredentials: public LoadInterface
             std::ifstream infile(filename.c_str());
             std::string password;
             infile >> password;
-            ((CredentialsDataContainer*)data)->set_password(password);
+            ((CredentialsDataContainer*)data)->setPassword(password);
         }
 };
 
@@ -127,49 +126,49 @@ class LoadAthlete: public LoadInterface
                 std::string field;
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_name(field);
+                ((AthleteDataContainer*)data)->setName(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_miles(field);
+                ((AthleteDataContainer*)data)->setMiles(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_ytd_miles(field);
+                ((AthleteDataContainer*)data)->setYtdMiles(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_last_miles(field);
+                ((AthleteDataContainer*)data)->setLastMiles(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_pace(field);
+                ((AthleteDataContainer*)data)->setPace(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_ytd_pace(field);
+                ((AthleteDataContainer*)data)->setYtdPace(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_ascent(field);
+                ((AthleteDataContainer*)data)->setAscent(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_ytd_ascent(field);
+                ((AthleteDataContainer*)data)->setYtdAscent(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_mile1(field);
+                ((AthleteDataContainer*)data)->setMile1(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_mile2(field);
+                ((AthleteDataContainer*)data)->setMile2(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_k5(field);
+                ((AthleteDataContainer*)data)->setK5(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_k10(field);
+                ((AthleteDataContainer*)data)->setK10(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_half_mar(field);
+                ((AthleteDataContainer*)data)->setHalfMar(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_mar(field);
+                ((AthleteDataContainer*)data)->setMar(field);
 
                 getline(s, field,',');
-                ((AthleteDataContainer*)data)->set_mile50(field);
+                ((AthleteDataContainer*)data)->setMile50(field);
             }
         }
 };
@@ -192,7 +191,7 @@ class LoadCoach: public LoadInterface
                 file_loader.load(line,&athlete);
                 athletes.push_back(athlete);
             }
-            ((AthletesDataContainer*)data)->set_athletes(athletes);
+            ((AthletesDataContainer*)data)->setAthletes(athletes);
         }
 };
 
@@ -221,31 +220,31 @@ class LoadTeam: public LoadInterface
             int miles = 0;
             int pace = 0;
             int ascent = 0;
-            int fastest_pace = 0;
+            int fastestPace = 0;
             std::string fastest;
 
             std::string::size_type sz;
 
             for(unsigned int i = 0; i < athletes.size(); i++)
             {
-                miles += std::stoi(athletes[i].get_miles(),&sz);
-                pace += std::stoi(athletes[i].get_pace(),&sz);
-                ascent += std::stoi(athletes[i].get_ascent(),&sz);
-                if(std::stoi(athletes[i].get_pace(),&sz) > fastest_pace)
+                miles += std::stoi(athletes[i].getMiles(),&sz);
+                pace += std::stoi(athletes[i].getPace(),&sz);
+                ascent += std::stoi(athletes[i].getAscent(),&sz);
+                if(std::stoi(athletes[i].getPace(),&sz) > fastestPace)
                 {
-                    fastest_pace = std::stoi(athletes[i].get_pace(),&sz);
-                    fastest = athletes[i].get_name();
+                    fastestPace = std::stoi(athletes[i].getPace(),&sz);
+                    fastest = athletes[i].getName();
                 }
             }
 
             pace = pace / size;
 
-            ((TeamDataContainer*)data)->set_name(name);
-            ((TeamDataContainer*)data)->set_athletes(std::to_string(size));
-            ((TeamDataContainer*)data)->set_miles(std::to_string(miles));
-            ((TeamDataContainer*)data)->set_pace(std::to_string(pace));
-            ((TeamDataContainer*)data)->set_ascent(std::to_string(ascent));
-            ((TeamDataContainer*)data)->set_fastest(fastest);
+            ((TeamDataContainer*)data)->setName(name);
+            ((TeamDataContainer*)data)->setAthletes(std::to_string(size));
+            ((TeamDataContainer*)data)->setMiles(std::to_string(miles));
+            ((TeamDataContainer*)data)->setPace(std::to_string(pace));
+            ((TeamDataContainer*)data)->setAscent(std::to_string(ascent));
+            ((TeamDataContainer*)data)->setFastest(fastest);
         }
 };
 
@@ -268,7 +267,7 @@ class LoadTeams: public LoadInterface
                 file_loader.load(line,&team);
                 teams.push_back(team);
             }
-            ((TeamsDataContainer*)data)->set_teams(teams);
+            ((TeamsDataContainer*)data)->setTeams(teams);
         }
 };
 /**

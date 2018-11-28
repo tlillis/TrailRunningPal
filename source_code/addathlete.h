@@ -1,8 +1,9 @@
 #ifndef ADDATHLETE_H
 #define ADDATHLETE_H
 
-#include <QWidget>
 #include "fileupdater.h"
+
+#include <QWidget>
 
 namespace Ui {
 class AddAthlete;
@@ -16,15 +17,15 @@ class AddAthlete : public QWidget
 
 public:
     explicit AddAthlete(QWidget *parent = 0);
-    void use_user(std::string username);
-    void use_observer(FileUpdater * updater);
+    void setUser(std::string username);
+    void useObserver(FileUpdater * updater);
     ~AddAthlete();
 
 private slots:
     void on_addButton_clicked();
 
 private:
-    Ui::AddAthlete *ui;
+    Ui::AddAthlete *_ui;
     FileUpdater * _updater = NULL;
     std::string _user;
 };

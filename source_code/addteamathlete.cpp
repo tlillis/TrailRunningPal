@@ -3,17 +3,17 @@
 
 AddTeamAthlete::AddTeamAthlete(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::AddTeamAthlete)
+    _ui(new Ui::AddTeamAthlete)
 {
-    ui->setupUi(this);
+    _ui->setupUi(this);
 }
 
-void AddTeamAthlete::use_observer(FileUpdater *updater)
+void AddTeamAthlete::setObserver(FileUpdater *updater)
 {
     _updater = updater;
 }
 
-void AddTeamAthlete::use_user(std::string username)
+void AddTeamAthlete::setUser(std::string username)
 {
     _user = username;
 }
@@ -21,14 +21,14 @@ void AddTeamAthlete::use_user(std::string username)
 
 void AddTeamAthlete::on_addButton_clicked()
 {
-    QString athlete_s = ui->athlete_name->text();
-    QString team_s = ui->team_name->text();
+    QString athleteS = _ui->athlete_name->text();
+    QString teamS = _ui->team_name->text();
 
-    if(athlete_s != "" && team_s != "")
+    if(athleteS != "" && teamS != "")
     {
         if(_updater != NULL)
         {
-            _updater->write(team_s.toStdString(),"team.txt",athlete_s.toStdString() + "\n");
+            _updater->write(teamS.toStdString(),"team.txt",athleteS.toStdString() + "\n");
             _updater->notify(_user);
         }
     }
@@ -36,5 +36,5 @@ void AddTeamAthlete::on_addButton_clicked()
 
 AddTeamAthlete::~AddTeamAthlete()
 {
-    delete ui;
+    delete _ui;
 }

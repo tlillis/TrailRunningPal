@@ -1,17 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QMessageBox>
-
-#include <iostream>
-
 #include "athlwindow.h"
 #include "coachwindow.h"
 #include "ui_mainwindow.h"
 #include "login.h"
 
+#include <iostream>
 
+#include <QMainWindow>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -31,9 +29,8 @@ private slots:
     void on_radioButton_coach_clicked();
 
 private:
-    QString login_type;
-    Ui::MainWindow *ui;
-    //AthlWindow *AthlWindow;
+    QString _loginType;
+    Ui::MainWindow *_ui;
 };
 
 #endif // MAINWINDOW_H

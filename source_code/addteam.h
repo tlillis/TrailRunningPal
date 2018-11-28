@@ -1,8 +1,9 @@
 #ifndef ADDTEAM_H
 #define ADDTEAM_H
 
-#include <QWidget>
 #include "fileupdater.h"
+
+#include <QWidget>
 
 namespace Ui {
 class AddTeam;
@@ -16,15 +17,15 @@ class AddTeam : public QWidget
 
 public:
     explicit AddTeam(QWidget *parent = 0);
-    void use_user(std::string username);
-    void use_observer(FileUpdater * updater);
+    void useUser(std::string username);
+    void useObserver(FileUpdater * updater);
     ~AddTeam();
 
 private slots:
     void on_addButton_clicked();
 
 private:
-    Ui::AddTeam *ui;
+    Ui::AddTeam *_ui;
     FileUpdater * _updater = NULL;
     std::string _user;
 };

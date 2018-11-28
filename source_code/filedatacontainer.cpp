@@ -10,22 +10,22 @@ CredentialsDataContainer::CredentialsDataContainer()
 
 }
 
-void CredentialsDataContainer::set_username(std::__cxx11::string username)
+void CredentialsDataContainer::setUsername(std::__cxx11::string username)
 {
     _username = username;
 }
 
-void CredentialsDataContainer::set_password(std::__cxx11::string password)
+void CredentialsDataContainer::setPassword(std::__cxx11::string password)
 {
     _password = password;
 }
 
-std::string CredentialsDataContainer::get_password()
+std::string CredentialsDataContainer::getPassword()
 {
     return _password;
 }
 
-std::string CredentialsDataContainer::get_username()
+std::string CredentialsDataContainer::getUsername()
 {
     return _password;
 }
@@ -35,12 +35,12 @@ RunsDataContainer::RunsDataContainer()
 
 }
 
-std::vector<RunDataContainer> RunsDataContainer::get_runs()
+std::vector<RunDataContainer> RunsDataContainer::getRuns()
 {
     return _runs;
 }
 
-void RunsDataContainer::set_runs(std::vector<RunDataContainer> runs)
+void RunsDataContainer::setRuns(std::vector<RunDataContainer> runs)
 {
     _runs = runs;
 }
@@ -51,242 +51,242 @@ RunDataContainer::RunDataContainer()
 
 }
 
-std::string RunDataContainer::get_date()
+std::string RunDataContainer::getDate()
 {
     return _date;
 }
 
-void RunDataContainer::set_date(std::string date)
+void RunDataContainer::setDate(std::string date)
 {
     _date = date;
 }
 
-std::string RunDataContainer::get_time()
+std::string RunDataContainer::getTime()
 {
     return _time;
 }
 
-void RunDataContainer::set_time(std::__cxx11::string time)
+void RunDataContainer::setTime(std::__cxx11::string time)
 {
     _time = time;
 }
 
-std::string RunDataContainer::get_miles()
+std::string RunDataContainer::getMiles()
 {
     return _miles;
 }
 
-void RunDataContainer::set_miles(std::__cxx11::string miles)
+void RunDataContainer::setMiles(std::__cxx11::string miles)
 {
     _miles = miles;
 }
 
-std::string RunDataContainer::get_egain()
+std::string RunDataContainer::getEgain()
 {
     return _egain;
 }
 
-void RunDataContainer::set_egain(std::__cxx11::string egain)
+void RunDataContainer::setEgain(std::__cxx11::string egain)
 {
     _egain = egain;
 }
 
-std::string RunDataContainer::get_mhr()
+std::string RunDataContainer::getMhr()
 {
     return _mhr;
 }
 
-void RunDataContainer::set_mhr(std::__cxx11::string mhr)
+void RunDataContainer::setMhr(std::__cxx11::string mhr)
 {
     _mhr = mhr;
 }
 
-std::string RunDataContainer::get_ahr()
+std::string RunDataContainer::getAhr()
 {
     return _ahr;
 }
 
-void RunDataContainer::set_ahr(std::__cxx11::string ahr)
+void RunDataContainer::setAhr(std::__cxx11::string ahr)
 {
     _ahr = ahr;
 }
 
-std::string RunDataContainer::get_cals()
+std::string RunDataContainer::getCals()
 {
     return _cals;
 }
 
-void RunDataContainer::set_cals(std::string cals)
+void RunDataContainer::setCals(std::string cals)
 {
     _cals = cals;
 }
 
-std::string RunDataContainer::get_fastest()
+std::string RunDataContainer::getFastest()
 {
     return _fastest;
 }
 
-void RunDataContainer::set_fastest(std::string fastest)
+void RunDataContainer::setFastest(std::string fastest)
 {
     _fastest = fastest;
 }
 
-std::string RunDataContainer::get_tag()
+std::string RunDataContainer::getTag()
 {
     return _tag;
 }
 
-void RunDataContainer::set_tag(std::string tag)
+void RunDataContainer::setTag(std::string tag)
 {
     _tag = tag;
 }
 
-std::string AthleteDataContainer::get_name()
+std::string AthleteDataContainer::getName()
 {
     return _name;
 }
 
-void AthleteDataContainer::set_name(std::string name)
+void AthleteDataContainer::setName(std::string name)
 {
     _name = name;
 }
 
-std::string AthleteDataContainer::get_miles()
+std::string AthleteDataContainer::getMiles()
 {
     return _miles;
 }
 
-void AthleteDataContainer::set_miles(std::string miles)
+void AthleteDataContainer::setMiles(std::string miles)
 {
     _miles = miles;
 }
 
-std::string AthleteDataContainer::get_ytd_miles()
+std::string AthleteDataContainer::getYtdMiles()
 {
-    return _ytd_miles;
+    return _ytdMiles;
 }
 
-void AthleteDataContainer::set_ytd_miles(std::string ytd_miles)
+void AthleteDataContainer::setYtdMiles(std::string ytd_miles)
 {
-    _ytd_miles = ytd_miles;
+    _ytdMiles = ytd_miles;
 }
 
-std::string AthleteDataContainer::get_last_miles()
+std::string AthleteDataContainer::getLastMiles()
 {
-    return _last_miles;
+    return _lastMiles;
 }
 
-void AthleteDataContainer::set_last_miles(std::string last_miles)
+void AthleteDataContainer::setLastMiles(std::string lastMiles)
 {
-    _last_miles = last_miles;
+    _lastMiles = lastMiles;
 }
 
-std::string AthleteDataContainer::get_pace()
+std::string AthleteDataContainer::getPace()
 {
     return _pace;
 }
 
-void AthleteDataContainer::set_pace(std::string pace)
+void AthleteDataContainer::setPace(std::string pace)
 {
     _pace = pace;
 }
 
-std::string AthleteDataContainer::get_ytd_pace()
+std::string AthleteDataContainer::getYtdPace()
 {
-    return _ytd_pace;
+    return _ytdPace;
 }
 
-void AthleteDataContainer::set_ytd_pace(std::string ytd_pace)
+void AthleteDataContainer::setYtdPace(std::string ytdPace)
 {
-    _ytd_pace = ytd_pace;
+    _ytdPace = ytdPace;
 }
 
-std::string AthleteDataContainer::get_ascent()
+std::string AthleteDataContainer::getAscent()
 {
     return _ascent;
 }
 
-void AthleteDataContainer::set_ascent(std::string ascent)
+void AthleteDataContainer::setAscent(std::string ascent)
 {
     _ascent = ascent;
 }
 
-std::string AthleteDataContainer::get_ytd_ascent()
+std::string AthleteDataContainer::getYtdAscent()
 {
-    return _ytd_ascent;
+    return _ytdAscent;
 }
 
-void AthleteDataContainer::set_ytd_ascent(std::string ytd_ascent)
+void AthleteDataContainer::setYtdAscent(std::string ytdAscent)
 {
-    _ytd_ascent = ytd_ascent;
+    _ytdAscent = ytdAscent;
 }
 
-std::string AthleteDataContainer::get_mile1()
+std::string AthleteDataContainer::getMile1()
 {
     return _mile1;
 }
 
-void AthleteDataContainer::set_mile1(std::string mile1)
+void AthleteDataContainer::setMile1(std::string mile1)
 {
     _mile1 = mile1;
 }
 
-std::string AthleteDataContainer::get_mile2()
+std::string AthleteDataContainer::getMile2()
 {
     return _mile2;
 }
 
-void AthleteDataContainer::set_mile2(std::string mile2)
+void AthleteDataContainer::setMile2(std::string mile2)
 {
     _mile2 = mile2;
 }
 
-std::string AthleteDataContainer::get_k5()
+std::string AthleteDataContainer::getK5()
 {
     return _k5;
 }
 
-void AthleteDataContainer::set_k5(std::string k5)
+void AthleteDataContainer::setK5(std::string k5)
 {
     _k5 = k5;
 }
 
-std::string AthleteDataContainer::get_k10()
+std::string AthleteDataContainer::getK10()
 {
     return _k10;
 }
 
-void AthleteDataContainer::set_k10(std::string k10)
+void AthleteDataContainer::setK10(std::string k10)
 {
     _k10 = k10;
 }
 
-std::string AthleteDataContainer::get_half_mar()
+std::string AthleteDataContainer::getHalfMar()
 {
-    return _half_mar;
+    return _halfMar;
 }
 
-void AthleteDataContainer::set_half_mar(std::string half_mar)
+void AthleteDataContainer::setHalfMar(std::string halfMar)
 {
-    _half_mar = half_mar;
+    _halfMar = halfMar;
 }
 
-std::string AthleteDataContainer::get_mar()
+std::string AthleteDataContainer::getMar()
 {
     return _mar;
 }
 
-void AthleteDataContainer::set_mar(std::string mar)
+void AthleteDataContainer::setMar(std::string mar)
 {
     _mar = mar;
 }
 
-std::string AthleteDataContainer::get_mile50()
+std::string AthleteDataContainer::getMile50()
 {
     return _mile50;
 }
 
-void AthleteDataContainer::set_mile50(std::string mile50)
+void AthleteDataContainer::setMile50(std::string mile50)
 {
     _mile50 = mile50;
 }
@@ -301,12 +301,12 @@ AthletesDataContainer::AthletesDataContainer()
 
 }
 
-std::vector<AthleteDataContainer> AthletesDataContainer::get_athletes()
+std::vector<AthleteDataContainer> AthletesDataContainer::getAthletes()
 {
     return _athletes;
 }
 
-void AthletesDataContainer::set_athletes(std::vector<AthleteDataContainer> athletes)
+void AthletesDataContainer::setAthletes(std::vector<AthleteDataContainer> athletes)
 {
     _athletes = athletes;
 }
@@ -316,72 +316,72 @@ TeamsDataContainer::TeamsDataContainer()
 
 }
 
-std::vector<TeamDataContainer> TeamsDataContainer::get_teams()
+std::vector<TeamDataContainer> TeamsDataContainer::getTeams()
 {
     return _teams;
 }
 
-void TeamsDataContainer::set_teams(std::vector<TeamDataContainer> teams)
+void TeamsDataContainer::setTeams(std::vector<TeamDataContainer> teams)
 {
     _teams = teams;
 }
 
-std::string TeamDataContainer::get_name()
+std::string TeamDataContainer::getName()
 {
     return _name;
 }
 
-void TeamDataContainer::set_name(std::string name)
+void TeamDataContainer::setName(std::string name)
 {
     _name = name;
 }
 
-std::string TeamDataContainer::get_athletes()
+std::string TeamDataContainer::getAthletes()
 {
     return _athletes;
 }
 
-void TeamDataContainer::set_athletes(std::string athletes)
+void TeamDataContainer::setAthletes(std::string athletes)
 {
     _athletes = athletes;
 }
 
-std::string TeamDataContainer::get_miles()
+std::string TeamDataContainer::getMiles()
 {
     return _miles;
 }
 
-void TeamDataContainer::set_miles(std::string miles)
+void TeamDataContainer::setMiles(std::string miles)
 {
     _miles = miles;
 }
 
-std::string TeamDataContainer::get_pace()
+std::string TeamDataContainer::getPace()
 {
     return _pace;
 }
 
-void TeamDataContainer::set_pace(std::string pace)
+void TeamDataContainer::setPace(std::string pace)
 {
     _pace = pace;
 }
 
-std::string TeamDataContainer::get_ascent()
+std::string TeamDataContainer::getAscent()
 {
     return _ascent;
 }
 
-void TeamDataContainer::set_ascent(std::string ascent)
+void TeamDataContainer::setAscent(std::string ascent)
 {
     _ascent = ascent;
 }
 
-std::string TeamDataContainer::get_fastest()
+std::string TeamDataContainer::getFastest()
 {
     return _fastest;
 }
 
-void TeamDataContainer::set_fastest(std::string fastest)
+void TeamDataContainer::setFastest(std::string fastest)
 {
     _fastest = fastest;
 }
