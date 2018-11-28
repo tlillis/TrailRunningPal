@@ -23,6 +23,7 @@ public:
     explicit AthlWindow(QWidget *parent = 0);
     void import_runs(RunsDataContainer data);
     void import_athlete(AthleteDataContainer data);
+    void use_user(std::string username);
     ~AthlWindow();
 
 private slots:
@@ -30,6 +31,7 @@ private slots:
 
 private:
     Ui::AthlWindow *ui;
+    std::string _user;
 };
 
 #endif // ATHLWINDOW_H

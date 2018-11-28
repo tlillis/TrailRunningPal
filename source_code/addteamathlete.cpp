@@ -13,19 +13,23 @@ void AddTeamAthlete::use_observer(FileUpdater *updater)
     _updater = updater;
 }
 
+void AddTeamAthlete::use_user(std::string username)
+{
+    _user = username;
+}
+
+
 void AddTeamAthlete::on_addButton_clicked()
 {
     QString athlete_s = ui->athlete_name->text();
     QString team_s = ui->team_name->text();
-
-    std::string username = "paul";
 
     if(athlete_s != "" && team_s != "")
     {
         if(_updater != NULL)
         {
             _updater->write(team_s.toStdString(),"team.txt",athlete_s.toStdString() + "\n");
-            _updater->notify(username);
+            _updater->notify(_user);
         }
     }
 }

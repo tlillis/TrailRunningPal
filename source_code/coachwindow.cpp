@@ -13,6 +13,13 @@ CoachWindow::~CoachWindow()
     delete ui;
 }
 
+void CoachWindow::use_user(std::string username)
+{
+    _user = username;
+    ui->welcome->setText(QString::fromStdString("Welcome Coach " + _user));
+}
+
+
 void CoachWindow::on_athleteButton_clicked()
 {
     CoachObserver *obs = new CoachObserver();
@@ -23,6 +30,7 @@ void CoachWindow::on_athleteButton_clicked()
 
     AddAthlete *add_athlete = new AddAthlete();
     add_athlete->use_observer(updater);
+    add_athlete->use_user(_user);
     add_athlete->show();
 }
 
@@ -36,6 +44,7 @@ void CoachWindow::on_teamButton_clicked()
 
     AddTeam *add_team = new AddTeam();
     add_team->use_observer(updater);
+    add_team->use_user(_user);
     add_team->show();
 }
 
@@ -49,6 +58,7 @@ void CoachWindow::on_ateamButton_clicked()
 
     AddTeamAthlete *add_ateam = new AddTeamAthlete();
     add_ateam->use_observer(updater);
+    add_ateam->use_user(_user);
     add_ateam->show();
 }
 

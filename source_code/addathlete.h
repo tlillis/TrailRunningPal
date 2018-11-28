@@ -16,6 +16,7 @@ class AddAthlete : public QWidget
 
 public:
     explicit AddAthlete(QWidget *parent = 0);
+    void use_user(std::string username);
     void use_observer(FileUpdater * updater);
     ~AddAthlete();
 
@@ -25,6 +26,7 @@ private slots:
 private:
     Ui::AddAthlete *ui;
     FileUpdater * _updater = NULL;
+    std::string _user;
 };
 
 #endif // ADDATHLETE_H

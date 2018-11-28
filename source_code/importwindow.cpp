@@ -13,6 +13,11 @@ void ImportWindow::use_observer(FileUpdater *updater)
     _updater = updater;
 }
 
+void ImportWindow::use_user(std::string username)
+{
+    _user = username;
+}
+
 void ImportWindow::on_pushButton_Import_clicked()
 {
     QString route_s = ui->lineEdit_Route->text();
@@ -24,8 +29,6 @@ void ImportWindow::on_pushButton_Import_clicked()
     QString egain_s = ui->lineEdit_EGain->text();
     QString fastest_s = ui->lineEdit_Fastest->text();
     QString tags_s = ui->lineEdit_Tags->text();
-
-    std::string username = "tom";
 
     if(route_s != "" && time_s != "")
     {
@@ -46,7 +49,7 @@ void ImportWindow::on_pushButton_Import_clicked()
             LoadAthlete load_athlete;
             AthleteDataContainer old;
             LoadFile file_loader(&load_athlete);
-            file_loader.load(username,&old);
+            file_loader.load(_user,&old);
 
             int miles = 0;
             miles += std::stoi(miles_s.toStdString(), &sz);
@@ -82,7 +85,7 @@ void ImportWindow::on_pushButton_Import_clicked()
                 mile1 = fastest_s.toStdString();
             }
 
-            std::string stat_data = username + ",";
+            std::string stat_data = _user + ",";
             stat_data += std::to_string(miles) + ",";
             stat_data += std::to_string(ytd_miles) + ",";
             stat_data += std::to_string(last_miles) + ",";
@@ -98,9 +101,9 @@ void ImportWindow::on_pushButton_Import_clicked()
             stat_data += old.get_mar() + ",";
             stat_data += old.get_mile50() + "\n";
 
-            _updater->write(username,"runs.csv",run_data);
-            _updater->write(username,"stats.txt",stat_data);
-            _updater->notify(username);
+            _updater->write(_user,"runs.csv",run_data);
+            _updater->write(_user,"stats.txt",stat_data);
+            _updater->notify(_user);
             QMessageBox::information(this, "Imported", "Imported Run Saved");
             this->close();
         }

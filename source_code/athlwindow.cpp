@@ -8,6 +8,12 @@ AthlWindow::AthlWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void AthlWindow::use_user(std::string username)
+{
+    _user = username;
+    ui->welcome->setText(QString::fromStdString("Welcome " + _user));
+}
+
 void AthlWindow::on_pushButton_Import_clicked()
 {
     AthleteObserver *obs = new AthleteObserver();
@@ -18,6 +24,7 @@ void AthlWindow::on_pushButton_Import_clicked()
 
     ImportWindow *import_window = new ImportWindow();
     import_window->use_observer(updater);
+    import_window->use_user(_user);
     import_window->show();
 }
 

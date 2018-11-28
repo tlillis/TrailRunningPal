@@ -16,6 +16,7 @@ class AddTeam : public QWidget
 
 public:
     explicit AddTeam(QWidget *parent = 0);
+    void use_user(std::string username);
     void use_observer(FileUpdater * updater);
     ~AddTeam();
 
@@ -25,6 +26,7 @@ private slots:
 private:
     Ui::AddTeam *ui;
     FileUpdater * _updater = NULL;
+    std::string _user;
 };
 
 #endif // ADDTEAM_H

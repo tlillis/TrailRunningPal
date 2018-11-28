@@ -22,6 +22,7 @@ class ImportWindow : public QWidget
 public:
     explicit ImportWindow(QWidget *parent = 0);
     void use_observer(FileUpdater * updater);
+    void use_user(std::string username);
     void update_stats(AthleteDataContainer *data);
 
     ~ImportWindow();
@@ -32,6 +33,7 @@ private slots:
 private:
     FileUpdater * _updater = NULL;
     Ui::ImportWindow *ui;
+    std::string _user;
 };
 
 #endif // IMPORTWINDOW_H

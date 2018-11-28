@@ -23,6 +23,7 @@ public:
     explicit CoachWindow(QWidget *parent = 0);
     void import_athletes(AthletesDataContainer data);
     void import_teams(TeamsDataContainer data);
+    void use_user(std::string username);
     ~CoachWindow();
 private slots:
     void on_athleteButton_clicked();
@@ -31,6 +32,7 @@ private slots:
 
 private:
     Ui::CoachWindow *ui;
+    std::string _user;
 };
 
 #endif // COACHWINDOW_H

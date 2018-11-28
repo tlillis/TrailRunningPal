@@ -40,6 +40,8 @@ int AthleteLogin::checkCredentials(std::string username,std::string password)
 
 void AthleteLogin::loadData(std::string username)
 {
+    athelete_window->use_user(username);
+
     LoadAthlete load_athlete;
     LoadRuns load_runs;
 
@@ -73,6 +75,8 @@ void CoachLogin::startWindow()
 
 void CoachLogin::loadData(std::__cxx11::string username)
 {
+    coach_window->use_user(username);
+
     LoadCoach load_coach;
     LoadTeams load_team;
 
