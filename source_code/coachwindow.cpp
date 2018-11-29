@@ -29,7 +29,7 @@ void CoachWindow::on_athleteButton_clicked()
     updater->attach(obs);
 
     AddAthlete *addAthlete = new AddAthlete();
-    addAthlete->useObserver(updater);
+    addAthlete->setObserver(updater);
     addAthlete->setUser(_user);
     addAthlete->show();
 }
@@ -43,8 +43,8 @@ void CoachWindow::on_teamButton_clicked()
     updater->attach(obs);
 
     AddTeam *addTeam = new AddTeam();
-    addTeam->useObserver(updater);
-    addTeam->useUser(_user);
+    addTeam->setObserver(updater);
+    addTeam->setUser(_user);
     addTeam->show();
 }
 

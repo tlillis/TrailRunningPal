@@ -10,37 +10,71 @@
 
 #define _GLIBCXX_USE_C99 1
 
+//! Interface for defining strategy for loading files
+/*! Interface for defining strategy for loading files
+ *  Use of strategy design pattern
+ */
 class LoadInterface
 {
-
     public:
+        //! Load data from file
+        /*! Load data from file
+        * \param filename filename to load from
+        * \param data data container to load the data into
+        */
         virtual void load(std::string filename,FileDataContainer* data) const = 0;
 };
 
+//! Class for handling different file load strategies
+/*! Class for handling different file load strategies
+ *  Use of strategy design pattern. Loads files in different ways given different strategies
+ */
 class LoadFile
 {
     private:
         LoadInterface * strategy_;
 
     public:
+        //! Constructor for loading file
+        /*! Constructor for loading file
+         * \param strategy strategy for loading file
+         */
         explicit LoadFile(LoadInterface *strategy):strategy_(strategy)
         {
         }
 
+        //! Set strategy for loading file
+        /*! Set strategy for loading file
+         * \param strategy strategy for loading file
+         */
         void set_strategy(LoadInterface *strategy)
         {
             strategy_ = strategy;
         }
 
+        //! Load data from file
+        /*! Load data from file
+         * \param filename filename to load from
+         * \param data data container to load the data into
+         */
         void load(std::string filename,FileDataContainer* data) const
         {
             strategy_->load(filename,data);
         }
 };
 
+//! Class defining load strategy of files containing runs
+/*! Class defining load strategy of files containing runs
+ *  Implements load for files that contain run data for an athlete.
+ */
 class LoadRuns: public LoadInterface
 {
     public:
+        //! Load data from file containing runs
+        /*! Load data from file containing runs
+        * \param filename filename to load from
+        * \param data data container to load the data into
+        */
         void load(std::string filename,FileDataContainer* data) const override
         {
             filename += "_runs.csv";
@@ -98,9 +132,18 @@ class LoadRuns: public LoadInterface
         }
 };
 
+//! Class defining load strategy of files containing credentials
+/*! Class defining load strategy of files containing credentials
+ *  Implements load for files that contain credentials for a user.
+ */
 class LoadCredentials: public LoadInterface
 {
     public:
+        //! Load data from file containing credentials
+        /*! Load data from file containing credentials
+        * \param filename filename to load from
+        * \param data data container to load the data into
+        */
         void load(std::string filename,FileDataContainer* data) const override
         {
             filename += "_creds";
@@ -111,9 +154,18 @@ class LoadCredentials: public LoadInterface
         }
 };
 
+//! Class defining load strategy of files containing athlete data
+/*! Class defining load strategy of files containing athlete data
+ *  Implements load for files that contain athlete data for an athlete.
+ */
 class LoadAthlete: public LoadInterface
 {
     public:
+        //! Load data from file containing athlete data
+        /*! Load data from file containing athlete data
+        * \param filename filename to load from
+        * \param data data container to load the data into
+        */
         void load(std::string filename,FileDataContainer* data) const override
         {
             filename += "_stats.txt";
@@ -173,9 +225,18 @@ class LoadAthlete: public LoadInterface
         }
 };
 
+//! Class defining load strategy of files containing coach data
+/*! Class defining load strategy of files containing coach data
+ *  Implements load for files that contain coach data for a coach.
+ */
 class LoadCoach: public LoadInterface
 {
     public:
+        //! Load data from file containing coach data
+        /*! Load data from file containing coach data
+        * \param filename filename to load from
+        * \param data data container to load the data into
+        */
         void load(std::string filename,FileDataContainer* data) const override
         {
             filename += "_coach.txt";
@@ -195,9 +256,18 @@ class LoadCoach: public LoadInterface
         }
 };
 
+//! Class defining load strategy of files containing team data
+/*! Class defining load strategy of files containing team data
+ *  Implements load for files that contain team data for a team.
+ */
 class LoadTeam: public LoadInterface
 {
     public:
+        //! Load data from file containing team data
+        /*! Load data from file containing team data
+        * \param filename filename to load from
+        * \param data data container to load the data into
+        */
         void load(std::string filename,FileDataContainer* data) const override
         {
             std::cout << "Loading team " << filename << std::endl;
@@ -248,9 +318,18 @@ class LoadTeam: public LoadInterface
         }
 };
 
+//! Class defining load strategy of files containing team lists
+/*! Class defining load strategy of files containing team lists
+ *  Implements load for files that contain team data for a coach.
+ */
 class LoadTeams: public LoadInterface
 {
     public:
+        //! Load data from file containing team lists
+        /*! Load data from file containing team lists
+        * \param filename filename to load from
+        * \param data data container to load the data into
+        */
         void load(std::string filename,FileDataContainer* data) const override
         {
             std::cout << "Loading teams for " << filename << std::endl;

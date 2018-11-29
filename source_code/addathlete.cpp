@@ -8,7 +8,7 @@ AddAthlete::AddAthlete(QWidget *parent) :
     _ui->setupUi(this);
 }
 
-void AddAthlete::useObserver(FileUpdater *updater)
+void AddAthlete::setObserver(FileUpdater *updater)
 {
     _updater = updater;
 }

@@ -1,0 +1,83 @@
+\hypertarget{classLoadFile}{}\section{Load\+File Class Reference}
+\label{classLoadFile}\index{LoadFile@{LoadFile}}
+
+
+Class for handling different file load strategies.  
+
+
+
+
+{\ttfamily \#include $<$loadfile.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLoadFile_a0bab5fb647b94041305923651ac42c28}{Load\+File}} (\mbox{\hyperlink{classLoadInterface}{Load\+Interface}} $\ast$strategy)
+\begin{DoxyCompactList}\small\item\em Constructor for loading file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoadFile_a8cc361d8d1c29766dffeac4ada8d0258}{set\+\_\+strategy}} (\mbox{\hyperlink{classLoadInterface}{Load\+Interface}} $\ast$strategy)
+\begin{DoxyCompactList}\small\item\em Set strategy for loading file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoadFile_a02d94c2968496d097349ebc70f08f0ee}{load}} (std\+::string filename, \mbox{\hyperlink{classFileDataContainer}{File\+Data\+Container}} $\ast$data) const
+\begin{DoxyCompactList}\small\item\em Load data from file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for handling different file load strategies. 
+
+Class for handling different file load strategies Use of strategy design pattern. Loads files in different ways given different strategies 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLoadFile_a0bab5fb647b94041305923651ac42c28}\label{classLoadFile_a0bab5fb647b94041305923651ac42c28}} 
+\index{LoadFile@{LoadFile}!LoadFile@{LoadFile}}
+\index{LoadFile@{LoadFile}!LoadFile@{LoadFile}}
+\subsubsection{\texorpdfstring{LoadFile()}{LoadFile()}}
+{\footnotesize\ttfamily Load\+File\+::\+Load\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLoadInterface}{Load\+Interface}} $\ast$}]{strategy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor for loading file. 
+
+Constructor for loading file 
+\begin{DoxyParams}{Parameters}
+{\em strategy} & strategy for loading file \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classLoadFile_a02d94c2968496d097349ebc70f08f0ee}\label{classLoadFile_a02d94c2968496d097349ebc70f08f0ee}} 
+\index{LoadFile@{LoadFile}!load@{load}}
+\index{load@{load}!LoadFile@{LoadFile}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void Load\+File\+::load (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{\mbox{\hyperlink{classFileDataContainer}{File\+Data\+Container}} $\ast$}]{data }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Load data from file. 
+
+Load data from file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & filename to load from \\
+\hline
+{\em data} & data container to load the data into \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLoadFile_a8cc361d8d1c29766dffeac4ada8d0258}\label{classLoadFile_a8cc361d8d1c29766dffeac4ada8d0258}} 
+\index{LoadFile@{LoadFile}!set\_strategy@{set\_strategy}}
+\index{set\_strategy@{set\_strategy}!LoadFile@{LoadFile}}
+\subsubsection{\texorpdfstring{set\_strategy()}{set\_strategy()}}
+{\footnotesize\ttfamily void Load\+File\+::set\+\_\+strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLoadInterface}{Load\+Interface}} $\ast$}]{strategy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set strategy for loading file. 
+
+Set strategy for loading file 
+\begin{DoxyParams}{Parameters}
+{\em strategy} & strategy for loading file \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+loadfile.\+h\end{DoxyCompactItemize}

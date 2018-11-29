@@ -8,12 +8,12 @@ AddTeam::AddTeam(QWidget *parent) :
     _ui->setupUi(this);
 }
 
-void AddTeam::useObserver(FileUpdater *updater)
+void AddTeam::setObserver(FileUpdater *updater)
 {
     _updater = updater;
 }
 
-void AddTeam::useUser(std::string username)
+void AddTeam::setUser(std::string username)
 {
     _user = username;
 }
